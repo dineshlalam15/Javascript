@@ -15,13 +15,19 @@ console.log(`
     isLoggedIn: ${typeof isLoggedIn}
     `)
 /*
-number => 2 to power 53
-bigint
+Primitive Datatypes - 7 Types: 
+Number => 2 to power 53
+BigInt
 String => 'Single Quotes'/"Double Quotes"
-boolean => true/false
+Boolean => true/false
 null => standalone value & an Object. 
 undefined => value is not defined.
-symbol
+Symbol
+
+Non-Primitive Datatypes: 
+Array
+Objects
+Functions
 */ 
 console.log(typeof null);
 console.log(typeof undefined);
@@ -54,3 +60,41 @@ let someNumber = 69
 let stringNumber = String(someNumber)
 console.log(someNumber)
 console.log(typeof someNumber)
+
+let sym1 = Symbol();
+let sym2 = Symbol();
+console.log(sym1 === sym2);
+
+sym1 = Symbol("description");
+sym2 = Symbol("description");
+console.log(sym1 === sym2);
+// The description is optional and only used for debugging purposes.
+
+let bigNumber = 1234567890123456789012345678901234567890n;
+console.log(bigNumber);
+console.log(typeof bigNumber)
+
+let bigInt = BigInt("1234567890123456789012345678901234567890");
+console.log(bigInt);
+console.log(typeof bigInt)
+
+let a = 1234567890123456789012345678901234567890n;
+let b = 9876543210987654321098765432109876543210n;
+console.table([
+    {operation: 'sum', answer: a + b, datatype: typeof(a + b)},
+    {operation: 'difference', answer: a - b, datatype: typeof(a - b)},
+    {operation: 'product', answer: a * b, datatype: typeof(a * b)},
+    {operation: 'quotient', answer: a / b, datatype: typeof(a / b)},
+    {operation: 'remainder', answer: a % b, datatype: typeof(a % b)},
+])
+
+const arr = ["Daemon Targaryen", "Rogue Prince", "Caraxes", 45]
+let myObj = {
+    name: "Rhaneyra Targaryen",
+    dragon: "syrax",
+    Title: "Mother of the dragons" 
+}
+console.log(arr)
+console.log(myObj)
+console.log(typeof arr)
+console.log(typeof myObj)
