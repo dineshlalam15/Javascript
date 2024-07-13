@@ -88,7 +88,7 @@ console.table([
     {operation: 'remainder', answer: a % b, datatype: typeof(a % b)},
 ])
 
-const arr = ["Daemon Targaryen", "Rogue Prince", "Caraxes", 45]
+const arr = ["Daemon Targaryen", "The Rogue Prince", "Caraxes", 45]
 let myObj = {
     name: "Rhaneyra Targaryen",
     dragon: "syrax",
@@ -98,3 +98,28 @@ console.log(arr)
 console.log(myObj)
 console.log(typeof arr)
 console.log(typeof myObj)
+
+/*
+Stack Memory and Heap Memory:
+Primitive datatypes - stack memory
+Non-Primitive datatypes - heap memory
+*/
+
+let husband = "Lord Corlys Valeryon"
+let firstName = husband
+console.log(firstName);
+firstName = "Rhaenys Targaryen"
+console.log(husband);
+console.log(firstName);
+// just the value is copied but it's never changed in the stack memory [primitive datatype].
+
+const user1 = {
+    email: "illuminati@gmail.com",
+    upi: "illuminati@ybl"
+}
+console.log(user1);
+const user2 = user1
+console.log(user2);
+user2.email = "edamone@aavesham.com"
+console.log(user1.email)
+// user1 and user2 are pointing at the same heap memory [non-primitive datatype].
