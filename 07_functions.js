@@ -61,3 +61,14 @@ function getThird(array){
 }
 console.log(getThird(arr));
 console.log(getThird([44,55,67,89,-90876]))
+
+console.log(sub(999,3411)); // We are able to call the function even before initialization.
+function sub(num1, num2){
+    return num2 - num1
+}
+
+// console.log(diff(22,32)): can't access as it is called before initialization. 
+const diff = function sub(num1, num2){
+    return num2 - num1
+}
+console.log(diff(786,876))
