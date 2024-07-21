@@ -1,0 +1,68 @@
+// Function that takes another function as an argument or returns function. 
+
+function x(){
+    console.log("Namaste");
+}
+function y(x){
+    x()
+    console.log("JavaScript");
+}
+// y is a higher order function
+
+const radius = [3,4,5,89]
+const calculateArea = function(radius) {
+    const output = [];
+    for(let i = 0; i < radius.length; i++){
+        output.push(Math.PI*radius[i]*radius[i])
+    }
+    return output
+}
+const calculateDiameter = function(radius){
+    const output = []
+    for(let i = 0; i < radius.length; i++){
+        output.push(2*radius[i])
+    }
+    return output
+}
+const calculateCircumference = function(radius){
+    const output = []
+    for(let i = 0; i < radius.length; i++){
+        output.push(2*Math.PI*radius[i])
+    }
+    return output
+}
+console.log("Areas:",calculateArea(radius));
+console.log("Circumferences:", calculateCircumference(radius)); 
+console.log("Radii:", calculateDiameter(radius));
+// This is the best way to prove your self dumb in an interview. 
+// Writing the logic again and again.
+// Do follow code reusability. 
+
+const calculate = function(arr, logic){
+    const ans = []
+    for(let i = 0; i < arr.length; i++){
+        ans.push(logic(arr[i]))
+    } return ans
+}
+const area = function(radius){
+    return Math.PI*radius*radius
+}
+const circumference = function(radius){
+    return 2*Math.PI*radius
+}
+const diameter = function(radius){
+    return 2*radius
+}
+console.log("Areas: ", calculate(radius, area))
+console.log("Circumferences: ", calculate(radius, circumference));
+console.log(("Diameters: ", calculate(radius, diameter)));
+// It's all about splitting the multiple actions of function to small pieces of function that can be reuable. 
+
+// Another way of writing the function even eliminating the array input in the function. 
+Array.prototype.calculate = function(logic){
+    const ans = []
+    for(let i = 0; i < this.length; i++){
+        ans.push(logic(this[i]))
+    } return ans
+}
+console.log(radius.calculate(area));
